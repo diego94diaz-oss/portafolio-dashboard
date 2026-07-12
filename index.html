@@ -22,6 +22,7 @@
     <button data-view="transacciones">Transacciones</button>
     <button data-view="evolucion">Evolución</button>
     <button data-view="aportes">Aportes</button>
+    <button data-view="dividendos">Dividendos</button>
     <button data-view="analisis">Análisis</button>
     <button data-view="datos">Actualización</button>
   </nav>
@@ -177,6 +178,45 @@
       12 meses, sin asumir ganancias de mercado. Escenario con rentabilidad: además asume
       que se repite tu rentabilidad (TWR) anualizada de los últimos 12 meses — es un
       supuesto, no una garantía; el portafolio ha sido volátil.</p>
+  </div>
+</section>
+
+<!-- ==================== 6b. DIVIDENDOS ==================== -->
+<section class="view" id="view-dividendos">
+  <div class="filters">
+    <label>Año
+      <select id="divYear"><option value="">Todos</option></select>
+    </label>
+    <label>Cuenta
+      <select id="divAccount"><option value="">Todas</option></select>
+    </label>
+    <label>Activo
+      <select id="divTicker"><option value="">Todos</option></select>
+    </label>
+  </div>
+  <div class="tiles" id="divTiles"></div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Dividendos por año</h3>
+      <div class="chart-wrap"><canvas id="chartDivYear"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Dividendos por mes (últimos 24 meses)</h3>
+      <div class="chart-wrap"><canvas id="chartDivMonth"></canvas></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Por activo</h3>
+    <p class="note">Los montos se muestran en la moneda del toggle (los pagos en CLP/USD
+      se convierten al tipo de cambio del día de cada pago). Yield 12m = dividendos de los
+      últimos 12 meses ÷ valor actual de la posición; sobre costo = ÷ costo invertido.
+      La retención es el impuesto en origen (IBK/Racional) — los dividendos chilenos
+      llegan líquidos.</p>
+    <div class="table-scroll" id="divByAsset"></div>
+  </div>
+  <div class="card">
+    <h3>Detalle de pagos <span class="badge" id="divCount"></span></h3>
+    <div class="table-scroll" id="divDetail"></div>
   </div>
 </section>
 
