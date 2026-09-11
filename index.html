@@ -289,14 +289,35 @@
 <!-- ==================== 8. ACTUALIZACIÓN ==================== -->
 <section class="view" id="view-datos">
   <div class="card">
+    <h3>Subir documento</h3>
+    <p class="note">Elige la cuenta y el tipo de documento, suelta el archivo y listo:
+      se guarda en su carpeta con el nombre que corresponde, se extraen los movimientos
+      y se actualizan los datos.</p>
+    <div class="upload-form">
+      <label>Cuenta
+        <select id="upAccount"></select>
+      </label>
+      <label>Tipo de documento
+        <select id="upType"></select>
+      </label>
+    </div>
+    <p class="note" id="upHelp"></p>
+    <div class="dropzone" id="upDrop">
+      <input type="file" id="upFile" hidden>
+      <strong>Suelta el archivo aquí</strong>
+      <span>o haz clic para elegirlo · <span id="upExt">—</span></span>
+    </div>
+    <div id="upResult"></div>
+  </div>
+  <div class="card">
     <h3>Acciones</h3>
     <div style="display:flex; gap:10px; flex-wrap:wrap;">
       <button class="btn" id="btnImport">Importar archivos nuevos</button>
       <button class="btn" id="btnPrices">Actualizar precios</button>
     </div>
-    <p class="note">Flujo: deja capturas o cartolas en las carpetas IBK / Racional / Zesty →
-      pídele a Claude que las extraiga a <code>staging/</code> → presiona «Importar».
-      Los CSV normalizados en <code>staging/</code> se importan directo.</p>
+    <p class="note">«Importar» revisa las carpetas de las cuentas y <code>staging/</code> por
+      documentos que todavía no se hayan procesado — útil si copiaste archivos a mano.
+      Para un documento nuevo es más simple subirlo arriba.</p>
     <p class="note" id="actionResult"></p>
   </div>
   <div class="card">
